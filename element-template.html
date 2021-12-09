@@ -1,0 +1,46 @@
+<template>
+  <link rel="stylesheet" href="element-style.css" />
+  <style>
+    h1 {
+      color: red;
+    }
+    h2 {
+      color: white;
+    }
+  </style>
+  <h2>TEST WEBFORM</h2>
+  <p>lorem ipsum</p>
+
+  <input type="text" id="textfield" value="hola!!!!" />
+  <button id="btn">Click</button>
+
+  <script>
+    //component get attributes
+    const sigeduId = elementWrapper.getAttribute('code');
+
+    //seleccionar por fuera del shadowElement
+    document.querySelector('#title').innerText = `hello form ${sigeduId}`;
+
+    //on elemnet
+    const shadowRoot = elementWrapper.shadowRoot;
+
+    shadowRoot.querySelector('#btn').addEventListener(
+      'click',
+      function () {
+        alert(shadowRoot.querySelector('#textfield').value);
+      },
+      false
+    );
+
+    console.log('JS EN TEMPLATE CARGADO');
+  </script>
+  <script>
+    (function ($) {
+      $(function () {
+        //Para seleccionar con jquery se debe agregar el shadowRoot como segundo atributo
+        console.log('text field = ', $('#textfield', elementWrapper).val());
+      }); // end of document ready
+    })(jQuery); // end of jQuery name space
+  </script>
+  <script src="element-script.js"></script>
+</template>
