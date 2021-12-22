@@ -1,6 +1,6 @@
 //Get mount parameters
-const mountScript = document.querySelector("script[src*='mount.js']");
-const urlScript = new URL(document.currentScript.src);
+const mountScript = document.currentScript; //document.querySelector("script[src*='mount.js']");
+const urlScript = new URL(mountScript.src);
 const moduleName = urlScript.searchParams.get('mod');
 
 //Set wrapper component
