@@ -6,13 +6,13 @@ const moduleName = urlScript.searchParams.get('mod');
 //Set wrapper component
 const elementWrapper = document.createElement('div');
 elementWrapper.setAttribute('id', 'elementWrapper');
-elementWrapper.style.backgroundColor = 'red'; //DELETE
+elementWrapper.style.backgroundColor = 'red'; //TODO: ELIMINAR
 urlScript.searchParams.forEach(function (value, key) {
   elementWrapper.setAttribute(key, value);
 });
 mountScript.insertAdjacentElement('afterend', elementWrapper);
 
-//Get modulo
+//Get component
 fetch(`${moduleName}.html${urlScript.search}`)
   .then(function (response) {
     return response.text();
